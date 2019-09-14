@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/StartGUI.gd" type="Script" id=1]
+[ext_resource path="res://Sound/Menu.wav" type="AudioStream" id=2]
+[ext_resource path="res://UI/Backround.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/marius1/Fuente Marius/Marius.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+outline_color = Color( 0.505882, 0.0627451, 0.0627451, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/fyodor/fyodor/truetype/Fyodor-BoldCondensed.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 200
+font_data = SubResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 800, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 20
+
+[node name="SplitContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 1890.0
+margin_bottom = 1060.0
+rect_min_size = Vector2( 800, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/SplitContainer"]
+margin_top = 202.0
+margin_right = 1860.0
+margin_bottom = 541.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.568627, 0.172549, 0.172549, 1 )
+text = "EVIL LURKS BEHIND EVERY CORNER"
+align = 1
+autowrap = true
+
+[node name="Start" type="Button" parent="MarginContainer/SplitContainer"]
+margin_left = 716.0
+margin_top = 591.0
+margin_right = 1143.0
+margin_bottom = 838.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "START"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+z_index = -5
+texture = ExtResource( 3 )
+[connection signal="button_up" from="MarginContainer/SplitContainer/Start" to="." method="_start_game"]

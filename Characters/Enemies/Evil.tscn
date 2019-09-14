@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemies/Evil.gd" type="Script" id=2]
+[ext_resource path="res://Characters/Enemies/Enemy.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Enemies/deathmarker.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Enemies/evilmarker.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Enemies/EvilDeath.wav" type="AudioStream" id=6]
+[ext_resource path="res://Characters/Enemies/EvilBreathing.wav" type="AudioStream" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 500.0
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 6 )
+random_pitch = 3.0
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 7 )
+random_pitch = 1.0
+
+[node name="Evil" groups=[
+"enemies",
+] instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 23
+mass = 1.0
+continuous_cd = 2
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 2 )
+speed = 5000
+damage = 1
+life = 1
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="Detection" type="Area2D" parent="." index="2"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="DetectionRadius" type="CollisionShape2D" parent="Detection" index="0"]
+shape = SubResource( 1 )
+
+[node name="DeathMarker" type="Sprite" parent="." index="3"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="EvilMarker" type="Sprite" parent="." index="4"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="AttackTimer" type="Timer" parent="." index="5"]
+wait_time = 0.1
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = SubResource( 2 )
+
+[node name="BreathingSound" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = SubResource( 3 )
+bus = "EnemyBreating"
+[connection signal="body_shape_entered" from="." to="." method="collusion"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Enemy_body_shape_exited"]
+[connection signal="body_entered" from="Detection" to="." method="detect_characters"]
+[connection signal="timeout" from="AttackTimer" to="." method="melee_attack"]

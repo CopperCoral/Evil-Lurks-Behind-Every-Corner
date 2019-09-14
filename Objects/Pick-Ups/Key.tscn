@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Pick-Ups/Key.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Pick-Ups/Keys.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Pick-Ups/KeyPickUp.wav" type="AudioStream" id=3]
+
+[node name="Key" type="Node2D" groups=[
+"Key",
+]]
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+contacts_reported = 3
+contact_monitor = true
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+scale = Vector2( 0.25, 0.25 )
+polygon = PoolVector2Array( -84.9442, 8.4422, -55.4542, -19.2047, -48.0817, 9.05655, -24.1211, -16.1328, -17.363, 4.75595, 5.98322, -21.6622, 12.7413, 5.3703, 30.5582, -22.8909, 28.7151, 23.8015, 69.8781, 16.429, 64.3488, -82.4852, 21.9569, -76.9558, 26.8719, -46.8515, -25.3499, -41.9365, -100.304, -45.6228, -98.4604, -6.3028 )
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+area_mask = 3
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_body_entered"]
+[connection signal="finished" from="PickUpSound" to="." method="self_destruct"]

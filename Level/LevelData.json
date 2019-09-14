@@ -1,0 +1,46 @@
+{
+    "FirstLevel" : "Level1",
+    "FinalLevel" : "Level6",
+    "Level1": {
+        "Name" : "The Beginning",
+        "DataPath" : "res://Level/Level1.tscn",
+        "SpritePath" : "res://Level/Level1Pic.png",
+        "Number" : 0,
+        "NextLevel" : "Level2"
+    },
+    "Level2": {
+        "Name" : "Maze of Darkness",
+        "DataPath" : "res://Level/Level2.tscn",
+        "SpritePath" : "res://Level/Level2Pic.png",
+        "Number" : 1,
+        "NextLevel" : "Level3"
+    },
+    "Level3": {
+        "Name" : "Shoot-out",
+        "DataPath" : "res://Level/Level3.tscn",
+        "SpritePath" : "res://Level/Level3Pic.png",
+        "Number" : 2,
+        "NextLevel" : "Level4"
+    },
+    "Level4": {
+        "Name" : "Cha-Cha-Chase You",
+        "DataPath" : "res://Level/Level4.tscn",
+        "SpritePath" : "res://Level/Level4Pic.png",
+        "Number" : 3,
+        "NextLevel" : "Level5"
+    },
+    "Level5": {
+        "Name" : "Keeper of the Three Keys",
+        "DataPath" : "res://Level/Level5.tscn",
+        "SpritePath" : "res://Level/Level5Pic.png",
+        "Number" : 4,
+        "NextLevel" : "Level6"
+    },
+    "Level6": {
+        "Name" : "Evilist",
+        "DataPath" : "res://Level/Level6.tscn",
+        "SpritePath" : "res://Level/Level6Pic.png",
+        "Number" : 5,
+        "NextLevel" : "Credits"
+    }
+}

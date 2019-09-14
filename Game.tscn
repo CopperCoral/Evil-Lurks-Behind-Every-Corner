@@ -1,0 +1,133 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Level/LevelManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Helpers/JsonLoader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Helpers/SaveManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/net.kivano.fsm/content/fsm.gd" type="Script" id=5]
+[ext_resource path="res://addons/net.kivano.fsm/assets/icoControl.png" type="Texture" id=6]
+[ext_resource path="res://FSM/states/LevelSelect/LevelSelect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/LevelSelect/LevelSelect.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FSM/states/PlayLevel/PlayLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FSM/states/PassThrough/PassThrough.tscn" type="PackedScene" id=10]
+[ext_resource path="res://FSM/states/Init/Init.tscn" type="PackedScene" id=11]
+[ext_resource path="res://FSM/states/credits/credits.tscn" type="PackedScene" id=12]
+[ext_resource path="res://FSM/transitions/selected_level/selected_level.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FSM/transitions/resetted_level/resetted_level.tscn" type="PackedScene" id=14]
+[ext_resource path="res://FSM/transitions/next_level/next_level.tscn" type="PackedScene" id=15]
+[ext_resource path="res://FSM/transitions/level_select/level_select.tscn" type="PackedScene" id=16]
+[ext_resource path="res://FSM/transitions/passed_through/passed_through.tscn" type="PackedScene" id=17]
+[ext_resource path="res://FSM/transitions/init/init.tscn" type="PackedScene" id=18]
+[ext_resource path="res://FSM/transitions/won_game/won_game.tscn" type="PackedScene" id=19]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="LevelManager" parent="." instance=ExtResource( 2 )]
+available_levels = 1
+
+[node name="LevelLoader" parent="." instance=ExtResource( 3 )]
+data_path = "res://Level/LevelData.json"
+
+[node name="SaveManager" parent="." instance=ExtResource( 4 )]
+
+[node name="FSMControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_icon": ExtResource( 6 )
+}
+onlyActiveStateOnTheScene = true
+"Initial state:" = "Init"
+"Create new:/Subdirectory for FSM nodes:" = "FSM"
+"Create new:/Create state with name:" = null
+"Create new:/Create transition with name:" = null
+GraphData = {
+"Credits": Vector2( 780, 670 ),
+"Credits_": Vector2( 780, 670 ),
+"Init": Vector2( 135, 93 ),
+"Init_": Vector2( 135, 93 ),
+"Init__": Vector2( 248, 302.198 ),
+"LevelSelect": Vector2( 515, 313 ),
+"LevelSelect_": Vector2( 515, 313 ),
+"LevelSelect__": Vector2( 515, 313 ),
+"PassThrough": Vector2( 1335, 190 ),
+"PassThrough_": Vector2( 1335, 190 ),
+"PassThrough__": Vector2( 1335, 190 ),
+"PlayLevel": Vector2( 823, 282 ),
+"PlayLevel_": Vector2( 823, 282 ),
+"PlayLevel__": Vector2( 823, 282 ),
+"credits": Vector2( 715, 665 ),
+"credits_": Vector2( 715, 665 ),
+"init": Vector2( 383, 162 ),
+"init_": Vector2( 383, 162 ),
+"init__": Vector2( 288, 337 ),
+"level_select": Vector2( 634, 445 ),
+"level_select_": Vector2( 634, 445 ),
+"level_select__": Vector2( 603, 465 ),
+"next_level": Vector2( 1159, 387 ),
+"next_level_": Vector2( 1159, 387 ),
+"next_level__": Vector2( 1159, 387 ),
+"passed_through": Vector2( 1040, 215 ),
+"passed_through_": Vector2( 1040, 215 ),
+"passed_through__": Vector2( 1040, 215 ),
+"restarted_level": Vector2( 970, 73 ),
+"restarted_level_": Vector2( 970, 73 ),
+"restarted_level__": Vector2( 970, 73 ),
+"selected_level": Vector2( 664, 151 ),
+"selected_level_": Vector2( 664, 151 ),
+"selected_level__": Vector2( 664, 151 ),
+"won_game": Vector2( 989, 521 ),
+"won_game_": Vector2( 989, 521 )
+}
+
+[node name="States" type="Control" parent="FSMControl"]
+
+[node name="LevelSelect" parent="FSMControl/States" instance=ExtResource( 7 )]
+level_select_data = ExtResource( 8 )
+
+[node name="PlayLevel" parent="FSMControl/States" instance=ExtResource( 9 )]
+
+[node name="PassThrough" parent="FSMControl/States" instance=ExtResource( 10 )]
+
+[node name="Init" parent="FSMControl/States" instance=ExtResource( 11 )]
+
+[node name="Credits" parent="FSMControl/States" instance=ExtResource( 12 )]
+
+[node name="Transitions" type="Control" parent="FSMControl"]
+
+[node name="selected_level" parent="FSMControl/Transitions" instance=ExtResource( 13 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/LevelSelect") ]
+path2TargetState = NodePath("../../States/PlayLevel")
+
+[node name="restarted_level" parent="FSMControl/Transitions" instance=ExtResource( 14 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/PlayLevel") ]
+path2TargetState = NodePath("../../States/PassThrough")
+
+[node name="next_level" parent="FSMControl/Transitions" instance=ExtResource( 15 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/PlayLevel") ]
+path2TargetState = NodePath("../../States/PassThrough")
+
+[node name="level_select" parent="FSMControl/Transitions" instance=ExtResource( 16 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/PlayLevel"), NodePath("../../States/credits"), NodePath("../../States/Credits") ]
+path2TargetState = NodePath("../../States/LevelSelect")
+
+[node name="passed_through" parent="FSMControl/Transitions" instance=ExtResource( 17 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/PassThrough") ]
+path2TargetState = NodePath("../../States/PlayLevel")
+
+[node name="init" parent="FSMControl/Transitions" instance=ExtResource( 18 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/Init") ]
+path2TargetState = NodePath("../../States/LevelSelect")
+
+[node name="won_game" parent="FSMControl/Transitions" instance=ExtResource( 19 )]
+path2SourceStates = [ NodePath(""), NodePath("../../States/PlayLevel") ]
+path2TargetState = NodePath("../../States/Credits")
+intervalBetweenChecks = -1.0
+[connection signal="level_selected" from="FSMControl/States/LevelSelect" to="FSMControl/Transitions/selected_level" method="_on_LevelSelect_level_selected"]
+[connection signal="level_select" from="FSMControl/States/PlayLevel" to="FSMControl/Transitions/level_select" method="accomplish"]
+[connection signal="next_level" from="FSMControl/States/PlayLevel" to="FSMControl/Transitions/next_level" method="next_level"]
+[connection signal="restarted" from="FSMControl/States/PlayLevel" to="FSMControl/Transitions/restarted_level" method="accomplish"]
+[connection signal="won_game" from="FSMControl/States/PlayLevel" to="FSMControl/Transitions/won_game" method="accomplish"]
+[connection signal="credits_ended" from="FSMControl/States/Credits" to="FSMControl/Transitions/level_select" method="accomplish"]

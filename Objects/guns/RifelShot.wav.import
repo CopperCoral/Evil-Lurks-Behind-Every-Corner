@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RifelShot.wav-54aacf2d43abacafbea75aae1174bf3f.sample"
+
+[deps]
+
+source_file="res://Objects/guns/RifelShot.wav"
+dest_files=[ "res://.import/RifelShot.wav-54aacf2d43abacafbea75aae1174bf3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

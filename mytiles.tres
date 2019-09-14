@@ -1,0 +1,188 @@
+[gd_resource type="TileSet" load_steps=22 format=2]
+
+[ext_resource path="res://sprites/Wall.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Floor.png" type="Texture" id=2]
+[ext_resource path="res://sprites/OneSideWall.png" type="Texture" id=3]
+[ext_resource path="res://sprites/CornerWall.png" type="Texture" id=4]
+[ext_resource path="res://sprites/ThreeSideWall.png" type="Texture" id=5]
+[ext_resource path="res://sprites/TwoSideWall.png" type="Texture" id=6]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -25, 0.5, -0.5, 0.5, -0.5, 25, 0.5, 25, 0.5, 0.5, 25, 0.5, 25, -0.5, 0.5, -0.5, 0.5, -25, -0.5, -25, -0.5, -0.5, -25, -0.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+resource_local_to_scene = true
+polygon = PoolVector2Array( -25, 0.5, -25, -0.5, 25, -0.5, 25, 0.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -0.5, -25, -0.5, 0.5, 25, 0.5, 25, -0.5, 0.5, -0.5, 0.5, -25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( -0.5, -10, -0.5, 25, 0.5, 25, 0.5, -10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=9]
+polygon = PoolVector2Array( -25, 0.5, -0.5, 0.5, -0.5, 25, 0.5, 25, 0.5, 0.5, 25, 0.5, 25, -0.5, 0.5, -0.5, 0.5, -25, -0.5, -25, -0.5, -0.5, -25, -0.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=11]
+resource_local_to_scene = true
+polygon = PoolVector2Array( -0.5, -25, -0.5, 25, 0.5, 25, 0.5, -25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( -15, -15, 15, -15, 15, 15, -15, 15 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( -20, -20, 20, -20, 20, 30, -20, 30 )
+
+[sub_resource type="StreamTexture" id=15]
+resource_local_to_scene = true
+flags = 4
+load_path = "res://.import/FourSideWall.png-8fbe1ea907e85da39229ea7233113d74.stex"
+
+[resource]
+0/name = "Wall"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 50, 50 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 25, 25 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 25, 25 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+0/z_index = 0
+1/name = "Floor"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 50, 50 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 25, 25 )
+1/navigation_offset = Vector2( 25, 25 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "OneSideWall"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 50, 50 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 25, 25 )
+2/occluder = SubResource( 3 )
+2/navigation_offset = Vector2( 25, 25 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25.2304, 20 )
+} ]
+2/z_index = 0
+3/name = "CornerWall"
+3/texture = ExtResource( 4 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 50, 50 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 25, 25 )
+3/occluder = SubResource( 5 )
+3/navigation_offset = Vector2( 25, 25 )
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+3/z_index = 0
+4/name = "ThreeSideWall"
+4/texture = ExtResource( 5 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 50, 50 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 25, 25 )
+4/occluder = SubResource( 7 )
+4/navigation_offset = Vector2( 25, 25 )
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+4/z_index = 0
+5/name = "InnerWall"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 50, 50 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 25, 25 )
+5/occluder = SubResource( 9 )
+5/navigation_offset = Vector2( 25, 25 )
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+5/z_index = 0
+6/name = "TwoSideWall"
+6/texture = ExtResource( 6 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 50, 50 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 25, 25 )
+6/occluder = SubResource( 11 )
+6/navigation_offset = Vector2( 25, 25 )
+6/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+6/z_index = 0
+7/name = "FourSideWall"
+7/texture = SubResource( 15 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 50, 50 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 25, 25 )
+7/occluder = SubResource( 13 )
+7/navigation_offset = Vector2( 25, 25 )
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1.25, 0, 0, 1, 25, 20 )
+} ]
+7/z_index = 0

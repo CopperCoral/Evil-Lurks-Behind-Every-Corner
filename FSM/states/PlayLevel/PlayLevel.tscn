@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://FSM/states/PlayLevel/PlayLevel.gd" type="Script" id=1]
+[ext_resource path="res://UI/PlayerUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/BossUI/BossUi.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/LevelFinishUI.tscn" type="PackedScene" id=5]
+
+[node name="PlayLevel" type="Node"]
+script = ExtResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PlayerUI" parent="UI" instance=ExtResource( 2 )]
+
+[node name="BossUi" parent="UI" instance=ExtResource( 3 )]
+visible = false
+
+[node name="GameOver" parent="UI" instance=ExtResource( 4 )]
+visible = false
+
+[node name="LevelFinishUI" parent="UI" instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="restarted" from="UI/GameOver" to="." method="restart"]
+[connection signal="level_select" from="UI/LevelFinishUI" to="." method="level_select"]
+[connection signal="next_level" from="UI/LevelFinishUI" to="." method="next_level"]

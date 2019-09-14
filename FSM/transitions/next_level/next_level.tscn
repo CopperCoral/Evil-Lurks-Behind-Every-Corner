@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FSM/transitions/next_level/next_level.gd" type="Script" id=1]
+
+[node name="next_level" type="Node"]
+script = ExtResource( 1 )
+path2SourceStates = [ NodePath("") ]
+path2TargetState = null
+intervalBetweenChecks = -1.0
+

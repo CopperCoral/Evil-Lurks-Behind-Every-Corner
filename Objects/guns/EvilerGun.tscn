@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/guns/EvilerGun.gd" type="Script" id=1]
+[ext_resource path="res://Objects/guns/bullets/EvilerBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/guns/bullets/EvilerWeapon.png" type="Texture" id=3]
+[ext_resource path="res://Objects/guns/gunshotlight.png" type="Texture" id=4]
+[ext_resource path="res://Objects/guns/EnemyGunShot.wav" type="AudioStream" id=5]
+
+
+
+[sub_resource type="Animation" id=1]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.00625455, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 5 )
+
+[node name="EvilerGun" type="RigidBody2D" groups=[
+"ranged_weapon",
+]]
+position = Vector2( 1.2379, 3.63175 )
+collision_layer = 16
+collision_mask = 63
+mode = 3
+mass = 10.0
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+bullet_data = ExtResource( 2 )
+next_bullet_loaded = true
+munition = 1000
+load_time = 1.0
+
+[node name="CollusionShape" type="CollisionPolygon2D" parent="."]
+position = Vector2( -9.92513, -0.103751 )
+rotation = 1.58389
+polygon = PoolVector2Array( -5.9393, -11.7025, -1.74108, -14.9792, 0.204441, -20.4062, 1.3308, -13.9553, 6.041, -11.6002 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3.79468, 0.0759048 )
+rotation = 1.58389
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="BulletSpawnPosition" type="Position2D" parent="."]
+position = Vector2( 21.0856, 0.420321 )
+scale = Vector2( 14325, -1702.26 )
+
+[node name="FrontOfGun" type="Position2D" parent="."]
+position = Vector2( 21.0856, 0.420321 )
+scale = Vector2( 14325, -1702.26 )
+
+[node name="NextBulletTimer" type="Timer" parent="."]
+
+[node name="GunshotLight" type="Light2D" parent="."]
+position = Vector2( 11.5, 0.375 )
+rotation = -3.14159
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 4 )
+shadow_enabled = true
+shadow_item_cull_mask = 3
+
+[node name="GunShotLightAnimation" type="AnimationPlayer" parent="GunshotLight"]
+anims/gunshot = SubResource( 1 )
+
+[node name="GunShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 2 )
+[connection signal="timeout" from="NextBulletTimer" to="." method="load_next_bullet"]

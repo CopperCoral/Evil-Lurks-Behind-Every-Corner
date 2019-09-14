@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/LevelSelect/UnselectedLevelEdge.png" type="Texture" id=1]
+[ext_resource path="res://UI/LevelSelect/SelectedLevelEdge.png" type="Texture" id=2]
+[ext_resource path="res://UI/LevelSelect/HoverOverLevelEdge.png" type="Texture" id=3]
+[ext_resource path="res://UI/LevelSelect/DisabledLevelSelect.png" type="Texture" id=4]
+[ext_resource path="res://UI/LevelSelect/LevelSelectButton.gd" type="Script" id=5]
+[ext_resource path="res://UI/LevelSelect/DisabledLevel.png" type="Texture" id=6]
+
+[node name="LevelSelectButton" type="TextureButton"]
+margin_right = 76.0
+margin_bottom = 69.0
+disabled = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Level" type="Sprite" parent="."]
+position = Vector2( 100, 100 )
+
+[node name="DisabledLevel" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.941176 )
+position = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_LevelSelectButton_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_LevelSelectButton_pressed"]

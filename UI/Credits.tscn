@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Credits.gd" type="Script" id=1]
+[ext_resource path="res://UI/Backround.png" type="Texture" id=2]
+[ext_resource path="res://fonts/vegur/Vegur-Regular.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 3 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.34229
+margin_bottom = -3.34229
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -5
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -396.0
+margin_right = 396.0
+margin_bottom = 1085.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "
+
+
+
+Congratulations!
+You have defeated all Evil through the use of violence!
+
+
+
+
+Game Produced: CopperCoral
+Game Design: CopperCoral
+Graphics: CopperCoral
+Programming: CopperCoral
+Sound Design: CopperCoral
+Writing: CopperCoral
+Story: CopperCoral
+
+Sounds:
+Boss Musis: bart
+Menu:Xanco123
+PlayerHit: Antikore
+KeyPickUp: NenadSimic
+
+Godot engine: Juan Linietsky, Ariel Manzur and the Godot Engine contributors
+
+
+Licenses and links to the creators can be found in the credit folder!
+
+Moral Support: CopperCoral
+Credits: CopperCoral"
+align = 1

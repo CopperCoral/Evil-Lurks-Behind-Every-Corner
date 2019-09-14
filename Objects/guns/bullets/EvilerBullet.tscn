@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/guns/bullets/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/guns/bullets/EvilerBullet.gd" type="Script" id=2]
+[ext_resource path="res://Objects/guns/bullets/EvilerBullet.png" type="Texture" id=3]
+
+
+[node name="Bullet" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 500
+
+[node name="Sprite" parent="." index="0"]
+rotation = 1.57079
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+visible = false
+polygon = PoolVector2Array( -7.70731, 8.53563, -7.32131, -8.57708, 3.22938, -6.64708, 7.15372, -2.01507, 6.83206, 2.16661, 4.13005, 7.76362, 0.334373, 8.79296 )
+
+[node name="Despawner" parent="." index="4"]
+wait_time = 4.0
+

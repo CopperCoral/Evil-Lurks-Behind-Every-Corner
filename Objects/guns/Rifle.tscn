@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/guns/rifle.png" type="Texture" id=2]
+[ext_resource path="res://Objects/guns/RifelShot.wav" type="AudioStream" id=3]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 3 )
+random_pitch = 1.3
+
+[node name="Rifle" instance=ExtResource( 1 )]
+position = Vector2( 36.6514, 1.39522 )
+munition = 30
+load_time = 0.2
+
+[node name="CollusionShape" parent="." index="0"]
+position = Vector2( 72.4375, 8.00195 )
+scale = Vector2( 1.5, 4.5 )
+polygon = PoolVector2Array( -47.9016, -0.600765, -48.335, -2.62371, -44.1446, -2.57555, -43.4222, -2.19022, -28.6836, -2.19022, -27.9611, -1.6604, -22.0367, -1.8049, -20.8808, -1.46774, -14.2339, -1.56407, -13.8004, -2.09389, -11.7775, -1.9494, -10.766, -1.46774, -8.59858, -1.6604, -8.16508, -1.90123, 1.51616, -1.99756, 1.37166, -0.504435, -6.86462, -0.456269, -7.87609, -0.889758, -10.766, -0.986088, -12.789, -0.504435, -13.9449, 0.0253849, -21.3142, 0.121715, -21.6032, -0.263608, -24.0597, -0.311773, -25.7936, 1.03686, -29.695, 1.08502, -30.4175, 0.218047, -32.5849, 0.699701, -35.9084, 0.603369, -36.7753, -0.119111, -37.3533, 1.47035, -39.2318, 1.42218, -39.3763, 1.71117, -42.1217, 1.75934, -42.6997, -0.167276 )
+
+[node name="BulletSpawnPosition" parent="." index="1"]
+position = Vector2( 75.6611, 2.51721 )
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2( 37.375, 8.45508 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="NextBulletTimer" parent="." index="3"]
+wait_time = 0.2
+
+[node name="GunShotSound" parent="." index="5"]
+stream = SubResource( 1 )
+
+[node name="WallChecker" parent="." index="6"]
+position = Vector2( 72.7985, 2.26201 )

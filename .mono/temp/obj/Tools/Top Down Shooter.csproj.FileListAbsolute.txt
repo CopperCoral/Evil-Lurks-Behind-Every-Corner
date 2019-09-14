@@ -1,0 +1,12 @@
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/bin/Tools/Top Down Shooter.dll
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/bin/Tools/Top Down Shooter.pdb
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.csprojAssemblyReference.cache
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.csproj.CoreCompileInputs.cache
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.dll
+/home/roman/Godot/Lernen/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.pdb
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/bin/Tools/Top Down Shooter.dll
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/bin/Tools/Top Down Shooter.pdb
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.csprojAssemblyReference.cache
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.csproj.CoreCompileInputs.cache
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.dll
+/home/roman/Godot/littleprojects/small-godot-projects/TopDownShooter/.mono/temp/obj/Tools/Top Down Shooter.pdb

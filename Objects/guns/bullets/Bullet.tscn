@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/guns/bullets/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Objects/guns/bullets/bullet.png" type="Texture" id=2]
+
+[node name="Bullet" type="RigidBody2D"]
+position = Vector2( 5, 0 )
+collision_layer = 8
+collision_mask = 31
+gravity_scale = 0.0
+continuous_cd = 2
+contacts_reported = 3
+contact_monitor = true
+script = ExtResource( 1 )
+speed = 1000
+damage = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5.26748, 0 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 5.26749, 0 )
+scale = Vector2( 0.52, 0.52 )
+polygon = PoolVector2Array( -9.61534, -9.61539, -9.61534, 9.61539, 3.84614, 9.61539, 7.69227, 5.76924, 9.61534, 0, 7.69227, -5.76924, 3.84614, -9.61539 )
+
+[node name="AimPosition" type="Position2D" parent="."]
+position = Vector2( 10.2675, 0 )
+
+[node name="Despawner" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="body_shape_entered" from="." to="." method="collusion"]
+[connection signal="timeout" from="Despawner" to="." method="_on_Despawner_timeout"]
