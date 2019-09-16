@@ -9,7 +9,8 @@
 [ext_resource path="res://Characters/Enemies/EvilBreathing.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 500.0
+resource_local_to_scene = true
+radius = 750.0
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 6 )
