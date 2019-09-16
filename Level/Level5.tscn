@@ -139,6 +139,6 @@ margin_top = -567.6
 margin_right = -688.08
 margin_bottom = -501.6
 custom_fonts/font = SubResource( 1 )
-text = "Find the keys
+text = "Find the 3 keys
 And come back"
 [connection signal="picked_up" from="Keys/Key" to="." method="_on_Key_picked_up"]
