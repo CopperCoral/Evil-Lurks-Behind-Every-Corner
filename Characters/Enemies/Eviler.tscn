@@ -6,9 +6,12 @@
 [ext_resource path="res://Characters/Enemies/evilermarker.png" type="Texture" id=4]
 [ext_resource path="res://Objects/guns/EvilerGun.tscn" type="PackedScene" id=5]
 
+[sub_resource type="CapsuleShape2D" id=1]
+resource_local_to_scene = true
+radius = 200.0
+height = 150.0
 
-
-[node name="Eviler" groups=[
+[node name="Eviler" index="0" groups=[
 "shooting_enemies",
 ] instance=ExtResource( 1 )]
 rotation = -0.00821602
